@@ -1,5 +1,4 @@
 {% load staticfiles %}
-
 <html>
     <head>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -16,14 +15,29 @@
             <h1><a href="/">Cooking With Code</a></h1>
             <h2 id="subtitle">Resources for C#, C++, and Python code</h2>
         </div>
-        <div class="content container">
-            <div class="row">
-                <div class="col-md-8">
-                {% block content %}
-                {% endblock %}
+        {% if user.is_authenticated %} <!--added the if 4/13-->
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                    </div>
                 </div>
             </div>
-        </div>
+        <!--Added the statements below 4/13-->
+        {% else %} 
+            <h1>Register Now!</h1>
+
+            <form id="user_form" method="post" action="/blog/register/" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+
+                <input type="submit" name="submit" value="Register"/>
+            </form>
+        {% endif %}
     </body>
 
 </html>
