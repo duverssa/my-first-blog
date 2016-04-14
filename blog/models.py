@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-class Post(models.Model):
+class Post(models.Model): #create a post
 	author = models.ForeignKey('auth.User')
 	title = models.CharField(max_length=200)
 	text = models.TextField()
@@ -17,7 +17,7 @@ class Post(models.Model):
 		return self.title
 
 #create users below 4/12
-class UserProfile(models.Model):
+class UserProfile(models.Model): #create a user profile
 	user = models.OneToOneField(User)
 
 	website = models.URLField(blank=True)
