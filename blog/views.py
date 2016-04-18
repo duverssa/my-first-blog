@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.utils import timezone
-from . models import Post #import from current directory, firl models
+from . models import Post#import from current directory, firl models,
 from django.shortcuts import render, get_object_or_404
 from . forms import PostForm, UserForm, UserProfileForm #import from current directory, file forms
 from django.shortcuts import redirect
@@ -71,4 +71,4 @@ def register(request): #show register view
 	else:
 		user_form = UserForm()
 		profile_form = UserProfileForm() #below should be request, 'blog/register.html', but changed it
-	return render(request, 'blog/base.html', {'user_form': user_form, 'profile_form': profile_form, 'resigered' : registered})
+	return render(request, 'blog/base.html', {'user_form': user_form, 'profile_form': profile_form, 'registered' : registered})

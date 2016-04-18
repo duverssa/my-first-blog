@@ -11,33 +11,20 @@
         <div class="page-header">
             {% if user.is_authenticated %}
             <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% else %}
+            <a id ="register" href="{% url 'register' %}">Register now!</a>
             {% endif %}
             <h1><a href="/">Cooking With Code</a></h1>
             <h2 id="subtitle">Resources for C#, C++, and Python code</h2>
         </div>
-        {% if user.is_authenticated %} <!--added the if 4/13-->
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-8">
-                    {% block content %}
-                    {% endblock %}
-                    </div>
-                </div>
-            </div>
-        <!--Added the statements below 4/13-->
-        {% else %} 
-            <h1>Register Now!</h1>
-
-            <form id="user_form" method="post" action="/blog/register/" enctype="multipart/form-data">
-
-                {% csrf_token %}
-
-                {{ user_form.as_p }}
-                {{ profile_form.as_p }}
-
-                <input type="submit" name="submit" value="Register"/>
-            </form>
-        {% endif %}
+        <div class="content container">
+               <div class="row">
+                   <div class="col-md-8">
+                       {% block content %}
+                       {% endblock %}
+                   </div>
+               </div>
+         </div>
     </body>
 
 </html>

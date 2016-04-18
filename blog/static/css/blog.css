@@ -14,11 +14,16 @@
     margin-left: 40px;
 }
 
+#register, #register:hover{
+    color: white;
+    text-decoration: none;
+    float: left;
+}
 #subTitle{
     color: #9ac4ff;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4{
     font-family: 'Lobster', cursive;
 }
 
