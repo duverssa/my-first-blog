@@ -70,10 +70,6 @@ def register(request): #show register view
 
 	else:
 		user_form = UserForm()
-<<<<<<< HEAD
+
 		profile_form = UserProfileForm()
 	return render(request, 'blog/register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered' : registered})
-=======
-		profile_form = UserProfileForm() #below should be request, 'blog/register.html', but changed it
-	return render(request, 'blog/base.html', {'user_form': user_form, 'profile_form': profile_form, 'registered' : registered})
->>>>>>> 699ec62bf61ea8384517529759f8556051f0873c
