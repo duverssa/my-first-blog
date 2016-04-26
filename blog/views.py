@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 
 def post_list(request): #show post list ordered by publish date
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 	return render(request, 'blog/post_list.html', {'posts': posts}) 
 
 def post_detail(request, pk): #show individual post
@@ -122,7 +122,7 @@ def user_login(request):
 				# If the account is valid and active, we can log the user in
 				# send user back to homepage
 				login(request, user)
-				return HttpResponseRedirect('/login') #may need to change this to 'blog/' or '/'
+				return HttpResponseRedirect('/') #may need to change this to 'blog/' or '/'
 		else:
 			# Bad Login details were provided, so user cannot log in
 			print("Invalid login details: {0}, {1}".format(username, password))
